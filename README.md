@@ -28,6 +28,7 @@ This application was generated using JHipster 6.5.1, you can find documentation 
     - Set DATA_DIR so that it points to [DATASETS_DIR]. **Make sure that the string DOES end with a slash ('/')!**.
     - Set WORKFLOW_DIR so that it points to [CODE_DIR]/libs/SciNeM-workflows/. **Make sure that the string DOES end with a slash ('/')!**.
 12. To enable the changes of environment variables, made in step 5, use the following command: `source ~/.profile`.
+13. Redirect port 80 to 8181: `sudo iptables -t nat -I PREROUTING --src 0/0 --dst 0/0  -p tcp --dport 80 -j REDIRECT --to-ports 8181`
 
 ## Development
 
