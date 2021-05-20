@@ -87,6 +87,6 @@ export const getPredefinedMetapaths = dataset => ({
 export const getMetapathDescription = (dataset, entities) => ({
   type: ACTION_TYPES.GET_METAPATH_DESCRIPTION,
   payload: axios.get(`${apiUrl}/description`, {
-    params: { dataset: 'H2020', entities: entities.join(',') }
+    params: { dataset, entities: entities.join(',') }
   })
 });
