@@ -221,7 +221,7 @@ export class Home extends React.Component<IHomeProps> {
 
         this.setState(newState, () => {
             if (this.state.metapath.length>2) {
-                this.props.getMetapathDescription(this.state.dataset, this.state.metapath.map(metapathCytoscapeNode=>metapathCytoscapeNode.data('label')));
+                this.props.getMetapathDescription(this.getCurrentDataset(), this.state.metapath.map(metapathCytoscapeNode=>metapathCytoscapeNode.data('label')));
             }
             this.animateNeighbors(lastNode);
         });
@@ -267,7 +267,7 @@ export class Home extends React.Component<IHomeProps> {
 
         this.setState(newState, () => {
             if (this.state.metapath.length>2) {
-                this.props.getMetapathDescription(this.state.dataset, this.state.metapath.map(metapathCytoscapeNode=>metapathCytoscapeNode.data('label')));
+                this.props.getMetapathDescription(this.getCurrentDataset(), this.state.metapath.map(metapathCytoscapeNode=>metapathCytoscapeNode.data('label')));
             }
             this.animateNeighbors(node);
         });
@@ -478,12 +478,7 @@ export class Home extends React.Component<IHomeProps> {
     execute(e, rerunAnalysis) {
 
         const analysisType = (rerunAnalysis) ? rerunAnalysis : this.state.analysis;
-        let datasetToUse;
-        if (this.state.dataset === null) {
-            datasetToUse = Object.keys(this.props.schemas)[0];
-        } else {
-            datasetToUse = this.state.dataset;
-        }
+        const datasetToUse = this.getCurrentDataset();
 
         const constaintDescriptions = {};
         Object.keys(this.state.constraints).forEach((entity, index) => {
@@ -699,14 +694,7 @@ export class Home extends React.Component<IHomeProps> {
         let datasetToUse = null;
         // let dataset = {};
         if (this.props.schemas) {
-            if (this.state.dataset === null) {
-                datasetToUse = Object.keys(this.props.schemas)[0];
-                // dataset = {
-                //   dataset: datasetToUse
-                // };
-            } else {
-                datasetToUse = this.state.dataset;
-            }
+            datasetToUse = this.getCurrentDataset();
             elements = this.props.schemas[datasetToUse]['elements'];
         } else {
             elements = null;
@@ -727,7 +715,7 @@ export class Home extends React.Component<IHomeProps> {
 
     changeSchema() {
 
-        const elements = this.props.schemas[this.state.dataset]['elements'];
+        const elements = this.props.schemas[this.getCurrentDataset()]['elements'];
 
         this.cy.elements().remove();
         this.cy.add(elements);
@@ -955,6 +943,10 @@ export class Home extends React.Component<IHomeProps> {
         this.registerMultipleNodes(cytoscapeNodes);
     }
 
+    getCurrentDataset() {
+        return (this.state.dataset === null) ? Object.keys(this.props.schemas)[0] : this.state.dataset;
+    }
+
     render() {
         const datasetOptions = this.getDatasetOptions();
         const schema = this.getSchema();
@@ -967,15 +959,7 @@ export class Home extends React.Component<IHomeProps> {
         let datasetFolder = '';
         let datasetToUse;
         if (this.props.schemas) {
-            if (this.state.dataset === null) {
-                datasetToUse = Object.keys(this.props.schemas)[0];
-                // dataset = {
-                //   dataset: datasetToUse
-                // };
-            } else {
-                datasetToUse = this.state.dataset;
-            }
-            // if (this.props.schemas) {
+            datasetToUse = this.getCurrentDataset();
             datasetFolder = this.props.schemas[datasetToUse]['folder'];
         }
         console.log(this.props.metapathInfo);

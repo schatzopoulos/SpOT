@@ -1,13 +1,14 @@
 // Override Boostrap variables
 // Import Bootstrap source files from node_modules
 @import 'node_modules/bootstrap/scss/bootstrap';
-// body {
-//   background: #fafafa;
-//   margin: 0;
-// }
+
+html,
 body {
   font-family: 'Quicksand', sans-serif;
   font-weight: 300;
+}
+body > #root > div {
+  height: 100vh;
 }
 
 h1,
@@ -38,7 +39,8 @@ a {
   box-sizing: border-box;
   .view-container {
     width: 100%;
-    height: calc(100% - 40px);
+    height: 100%;
+    // height: calc(100% - 40px);
     overflow-y: auto;
     overflow-x: hidden;
     padding: 1rem;
@@ -52,6 +54,10 @@ a {
       }
     }
   }
+}
+
+#main-card {
+  min-height: calc(100% - 48px);
 }
 
 .fullscreen {
