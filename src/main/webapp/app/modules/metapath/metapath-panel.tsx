@@ -139,12 +139,12 @@ class MetapathPanel extends React.Component<MetapathPanelProps> {
             return (
                 <Row className={'justify-content-start'}>
                     <Col xs={12}>
-                        <Button outline color="dark" size="lg" onClick={this.toggleEntitySelectionModal.bind(this)}>Select starting
+                        <Button outline color="dark" size="sm" onClick={this.toggleEntitySelectionModal.bind(this)}>Select starting
                             entity</Button>
                         {(this.state.entityModalOpen) &&
                         <EntityInsertionModal entities={this.nodes} onSelection={this.props.onNewEntity}
                                               onDismiss={this.toggleEntitySelectionModal.bind(this)} />}
-                        <Button className={'ml-2'} outline color="dark" size="lg" onClick={this.togglePredefinedMetapathsModal.bind(this)}>Select a predefined
+                        <Button className={'ml-2'} outline color="dark" size="sm" onClick={this.togglePredefinedMetapathsModal.bind(this)}>Select a predefined
                             metapath</Button>
                         <Modal isOpen={this.state.predefinedMetapathsModalOpen} toggle={this.togglePredefinedMetapathsModal.bind(this)} className={'modal-lg'}>
                             <ModalHeader toggle={this.togglePredefinedMetapathsModal.bind(this)}>Select a predefined metapath</ModalHeader>
