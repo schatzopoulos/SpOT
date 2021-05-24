@@ -17,6 +17,7 @@ import { hasAnyAuthority } from 'app/shared/auth/private-route';
 import ErrorBoundary from 'app/shared/error/error-boundary';
 import { AUTHORITIES } from 'app/config/constants';
 import AppRoutes from 'app/routes';
+import FeedbackButton from './modules/home/feedback';
 
 const baseHref = document
   .querySelector('base')
@@ -49,6 +50,8 @@ export const App = (props: IAppProps) => {
         </ErrorBoundary>
         <div className="container-fluid view-container" id="app-view-container">
           <Card id="main-card" className="jh-card">
+            <FeedbackButton />
+
             <ErrorBoundary>
               <AppRoutes />
             </ErrorBoundary>

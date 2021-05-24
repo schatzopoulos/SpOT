@@ -31,6 +31,7 @@ import ResultsPanel from '../analysis/results/results';
 import MetapathPanel from '../metapath/metapath-panel';
 import AutocompleteInput from '../datasets/autocomplete-input';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import FeedbackButton from './feedback';
 
 export interface IHomeProps extends StateProps, DispatchProps {
     loading: boolean;
