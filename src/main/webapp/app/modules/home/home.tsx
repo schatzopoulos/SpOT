@@ -222,7 +222,10 @@ export class Home extends React.Component<IHomeProps> {
 
         this.setState(newState, () => {
             if (this.state.metapath.length>2) {
-                this.props.getMetapathDescription(this.getCurrentDataset(), this.state.metapath.map(metapathCytoscapeNode=>metapathCytoscapeNode.data('label')));
+                this.props.getMetapathDescription(
+                    this.props.schemas[this.getCurrentDataset()]['folder'],
+                    this.state.metapath.map(metapathCytoscapeNode=>metapathCytoscapeNode.data('label'))
+                );
             }
             this.animateNeighbors(lastNode);
         });
@@ -268,7 +271,9 @@ export class Home extends React.Component<IHomeProps> {
 
         this.setState(newState, () => {
             if (this.state.metapath.length>2) {
-                this.props.getMetapathDescription(this.getCurrentDataset(), this.state.metapath.map(metapathCytoscapeNode=>metapathCytoscapeNode.data('label')));
+                this.props.getMetapathDescription(
+                    this.props.schemas[this.getCurrentDataset()]['folder'], 
+                    this.state.metapath.map(metapathCytoscapeNode => metapathCytoscapeNode.data('label')));
             }
             this.animateNeighbors(node);
         });
