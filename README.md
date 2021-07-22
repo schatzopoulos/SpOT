@@ -144,7 +144,7 @@ For more information, refer to the [Code quality page][].
 
 ## Using Docker 
 
-You can use Docker to simplify deployment. For a minimal wrapper to set up SciNeM in a single Docker stack deployment follow the instructions ([here])[https://github.com/smartdatalake/docker-scinem]. 
+You can use Docker to simplify deployment. For a minimal wrapper to set up SciNeM in a single Docker stack deployment follow the instructions [here][]
 
 
 [jhipster homepage and latest documentation]: https://www.jhipster.tech
@@ -165,3 +165,4 @@ You can use Docker to simplify deployment. For a minimal wrapper to set up SciNe
 [protractor]: https://angular.github.io/protractor/
 [leaflet]: https://leafletjs.com/
 [definitelytyped]: https://definitelytyped.org/
+[here]: https://github.com/smartdatalake/docker-scinem
